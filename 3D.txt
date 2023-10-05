@@ -1,0 +1,64 @@
+import requests
+import numpy as np
+import plotly.graph_objs as go
+import plotly.express as px
+
+# Fetch data from the API
+url = 'https://api.le-systeme-solaire.net/rest/bodies/'
+response = requests.get(url)
+data = response.json()
+
+# Create a list of planet names, distances from the sun, and radii
+planets = [(body['englishName'], body['semimajorAxis'], body['equaRadius']) for body in data['bodies'] if body['isPlanet']]
+
+# Create x, y, z coordinates and sizes for each planet
+x = np.zeros(len(planets))
+y = np.zeros(len(planets))
+z = np.zeros(len(planets))
+sizes = np.zeros(len(planets))
+for i, planet in enumerate(planets):
+    x[i] = planet[1] * np.cos(np.deg2rad(i * 45))
+    y[i] = planet[1] * np.sin(np.deg2rad(i * 45))
+    z[i] = i
+    sizes[i] = planet[2] * 0.0005 # Scale down the planet size
+
+# Create a 3D scatter plot
+fig = go.Figure()
+
+# Plot the planets
+for i, planet in enumerate(planets):
+    fig.add_trace(go.Scatter3d(
+        x=[x[i]], y=[y[i]], z=[z[i]],
+        mode='markers',
+        marker=dict(size=sizes[i], sizemode='diameter'),
+        text=planet[0],
+        name=planet[0]
+    ))
+
+# Fetch data for the sun
+url = 'https://api.le-systeme-solaire.net/rest/bodies/sun'
+response = requests.get(url)
+data = response.json()
+radius = data['equaRadius']
+
+# Calculate the x, y, z coordinates and size for the sun
+x_sun = 0
+y_sun = 0
+z_sun = 0
+size_sun = radius * 0.0005 # Scale down the sun size
+
+# Plot the sun
+fig.add_trace(go.Scatter3d(
+    x=[x_sun], y=[y_sun], z=[z_sun],
+    mode='markers',
+    marker=dict(size=size_sun, sizemode='diameter', color='yellow'),
+    text='Sun',
+    name='Sun'
+))
+
+# Set the axis labels
+fig.update_layout(scene=dict(xaxis_title='X axis (AU)',
+                             yaxis_title='Y axis (AU)',
+                             zaxis_title='Z axis'))
+
+fig.show()

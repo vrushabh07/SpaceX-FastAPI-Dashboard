@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Contact Us</title>
+      <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+         }
+         h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 36px;
+         }
+         img {
+            display: block;
+            margin: 50px auto;
+            max-width: 100%;
+            height: auto;
+         }
+         form {
+            text-align: center;
+            margin: 50px auto;
+         }
+         input[type=file], input[type=submit] {
+            display: block;
+            margin: 20px auto;
+         }
+         label {
+            display: block;
+            margin-top: 20px;
+         }
+         input[type=text], input[type=email] {
+            display: block;
+            margin: 10px auto;
+            padding: 5px;
+            width: 80%;
+         }
+         textarea {
+            display: block;
+            margin: 10px auto;
+            padding: 5px;
+            width: 80%;
+            height: 100px;
+         }
+      </style>
+   </head>
+   <body>
+      <h1>Contact Us</h1>
+      <img src ="https://cie.spacefoundation.org/wp-content/uploads/2022/07/Astronaut.jpg" width="400">
+      <br><br><br>
+      Ask how we can help you:<br>See our company in action<br>Request a personalized demo of Group 5’s partner marketing platform.<br><br>#1 aeronautical engineer placement<br>Our company has the highest success rate of matching applicants with their desired line of work with companies they love!<br><br>Explore a career with Group 5<br>Search open positions, read about group\'s culture and values, and explore our charitable initiatives.<br><br>Points of Contact<br>U.S. | Group 5<br>101 W 101 S Jordan Gateway Suite 16<br>South Jordan, UT 84095<br><br>Information and Recruiting<br>sifa@group5.com<br><br>Support<br>clark@group5.com<br><br>Chief Member of the Group<br>Vrushabh@group5.com<br><br>Dream Office Location<br>Germany<br>Torstr. 231, Vorderhaus, 1. OG, 10115 Berlin<br><br>
+      <form action="http://localhost:8000/uploader" method="POST" enctype="multipart/form-data">
+         <label for="name">Name:</label>
+         <input type="text" id="name" name="name" required>
+         <label for="email">Email:</label>
+         <input type="email" id="email" name="email" required>
+         <label for="resume">Resume:</label>
+         <input type="file" name="resume" id="resume" required>
+         <input type="submit" value="Submit">
+      </form>
+      <img src="https://cie.spacefoundation.org/wp-content/uploads/2022/07/Astronaut-8k.jpg" style="opacity: 0.3;">
+   </body>
+</html>
