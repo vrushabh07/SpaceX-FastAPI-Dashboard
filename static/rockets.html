@@ -1,0 +1,86 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>SpaceX Rockets</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-0mSbJDEHial+OrHiFpD2PyXuUPtkvv3p3qOvE1z3sf5VOpPr/CGOt8tf1KFUiSN0" crossorigin="anonymous">
+
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				font-family: Arial, sans-serif;
+                background-color: #a0d2eb;
+
+			}
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 20px;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+			}
+			.card {
+				max-width: 400px;
+				margin: 20px;
+				padding: 20px;
+				background-color: #fff;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+				border-radius: 5px;
+				overflow: hidden;
+			}
+			.card img {
+				max-width: 100%;
+				height: auto;
+			}
+			.card h2 {
+				font-size: 24px;
+				margin-top: 0;
+				margin-bottom: 10px;
+			}
+			.navbar-brand {
+              font-size: 1.5em;
+              float: left;
+				margin:  auto;
+				padding: 20px;
+				display: flex;
+				flex-wrap: wrap;
+				background-color: white;
+                            color: black;
+                            padding: 10px 20px;
+                            border-radius: 5px;
+                            text-decoration: none;
+
+            }
+
+                        .navbar-brand:hover {
+                            background-color: #a0d2eb;
+                            color: white;
+                        }
+
+
+
+
+
+		</style>
+	</head>
+	<body>
+			<div class="container1">
+					<a class="navbar-brand" href="/">Home</a>
+
+			</div>
+			<div class="container">
+			{% for rocket in rockets %}
+			<div class="card">
+				{% if rocket.name == 'Falcon 1' %}
+				<a href="/rockets/{{ rocket.id }}"><img src="/static/falcon 1.jpeg" alt="{{ rocket.name }} Photo"></a>
+				{% else %}
+				<a href="/rockets/{{ rocket.id }}"><img src="{{ rocket.photos[0] }}" alt="{{ rocket.name }} Photo"></a>
+				{% endif %}
+				<h2>{{ rocket.name }}</h2>
+			</div>
+			{% endfor %}
+		</div>
+	</body>
+	</html>

@@ -1,0 +1,16 @@
+          file_name  rank
+7   astronaut14.txt   1.0
+13   astronaut4.txt   2.0
+8    astronaut1.txt   3.0
+11   astronaut7.txt   4.0
+5   astronaut12.txt   5.0
+4   astronaut13.txt   6.0
+3   astronaut11.txt   7.0
+12   astronaut6.txt   8.0
+10   astronaut3.txt   9.0
+1    astronaut9.txt  10.0
+2   astronaut10.txt  11.0
+9    astronaut2.txt  12.0
+6   astronaut15.txt  13.0
+14   astronaut5.txt  14.0
+0    astronaut8.txt  15.0
